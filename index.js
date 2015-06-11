@@ -1,4 +1,5 @@
 var fs = require('fs')
+var os = require('os')
 var path = require('path')
 var mktemp = require('mktemp')
 var rimraf = require('rimraf')
@@ -35,7 +36,7 @@ function makeTmpDir(obj, prop) {
   return mktemp.createDirSync(path.join(baseDir, tmpDirName))
 }
 
-var baseDir
+var baseDir = os.tmpdir()
 
 function findBaseDir () {
   if (baseDir == null) {
